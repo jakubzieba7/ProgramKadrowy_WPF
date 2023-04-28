@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramKadrowy_WPF.ViewModels
 {
-    internal class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
     }
 }
