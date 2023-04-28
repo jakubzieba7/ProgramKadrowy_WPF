@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProgramKadrowy_WPF
+namespace ProgramKadrowy_WPF.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
