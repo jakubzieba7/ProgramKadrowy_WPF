@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramKadrowy_WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace ProgramKadrowy_WPF.Views
         public AddEmployee()
         {
             InitializeComponent();
+            DataContext = new AddEmployeeViewModel();
         }
     }
 }
