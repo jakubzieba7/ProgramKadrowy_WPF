@@ -32,6 +32,7 @@
                 />
             
             <Button 
+                Command="{Binding RefreshEmployeeCommand}"
                 Content="Odśwież" 
                 Height="25" 
                 Width="100"
@@ -80,7 +81,7 @@
                 <DataGridTextColumn Binding="{Binding LastName}" Header="Nazwisko"/>
                 <DataGridTextColumn Binding="{Binding Comments}" Header="Uwagi"/>
                 <DataGridTextColumn Binding="{Binding Contract.Name}" Header="Umowa"/>
-                <DataGridTextColumn Binding="{Binding Salary}" Header="Technologia"/>
+                <DataGridTextColumn Binding="{Binding Salary}" Header="Wynagrodzenie"/>
                 <DataGridTextColumn Binding="{Binding EmploymentDate}" Header="Data zatrudnienia"/>
                 <DataGridTextColumn Binding="{Binding UnemploymentDate}" Header="Data zakończenia współpracy"/>
                 <DataGridCheckBoxColumn Binding="{Binding IsCurrentlyHired}" Header="Aktualnie zatrudniony"/>

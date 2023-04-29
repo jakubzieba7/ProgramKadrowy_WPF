@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramKadrowy_WPF.Views"
         mc:Ignorable="d"
-        Title="AddEmployee" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+                 Name="AddEditStudentWindow"
+        Title="Dane pracownika" Height="520" Width="400">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Visibility="{Binding IsUpdate, Converter={StaticResource BooleanToVisibilityConverter}}" Content="Id" Margin="5"/>
+        <TextBox Visibility="{Binding IsUpdate, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Employee.Id}" IsReadOnly="True" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="1" Content="Imię" Margin="5"/>
+        <TextBox Text="{Binding Employee.FirstName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="2" Content="Nazwisko" Margin="5"/>
+        <TextBox Text="{Binding Employee.LastName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="3" Content="Wynagrodzenie" Margin="5"/>
+        <TextBox Text="{Binding Employee.Salary}" Grid.Row="3" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="4" Content="Data zatrudnienia" Margin="5"/>
+        <TextBox Text="{Binding Employee.EmploymentDate}" Grid.Row="4" Grid.Column="1" Margin="5"/>
+
+        <Label Grid.Row="5" Content="Umowa" Margin="5"/>
+        <ComboBox 
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Margin="5"
+            ItemsSource="{Binding Contracts}"
+            SelectedValue="{Binding Employee.Contract.Id,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"
+            DisplayMemberPath="Name"
+            SelectedValuePath="Id"
+            />
+
+        <CheckBox IsChecked="{Binding Employee.IsCurrentlyHired}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="0" Content="Obecnie zatrudniony" Margin="5" FlowDirection="RightToLeft"/>
+
+        <Label Grid.Row="7" Content="Uwagi" Margin="5"/>
+        <TextBox 
+            Text="{Binding Employee.Comments}"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            Grid.Row="7"
+            Grid.Column="1" 
+            Margin="5"
+            
+            />
+        <Label Grid.Row="8" Content="Data zwolnienia" Margin="5"/>
+        <TextBox Text="{Binding Employee.UnemploymentDate}" Grid.Row="8" Grid.Column="1" Margin="5"/>
         
+        <StackPanel Grid.Row="11" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=AddEditEmployeeWindow}" Content="Anuluj" Height="25" Width="100" Margin="5"/>
+            <Button Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=AddEditEmployeeWindow}" Content="Zatwierdź" Height="25" Width="100" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>
