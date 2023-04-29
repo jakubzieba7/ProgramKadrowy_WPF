@@ -5,8 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramKadrowy_WPF.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Program kadrowy" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button 
+                Command="{Binding AddEmployeeCommand}"
+                Content="Dodaj" 
+                Height="25" 
+                Width="100"
+                Margin="5"
+                />
+            
+            <Button 
+                Command="{Binding EditEmployeeCommand}"
+                CommandParameter="{Binding SelectedEmployee}"
+                Content="Edytuj" 
+                Height="25" 
+                Width="100"
+                Margin="5"
+                />
+            
+            <Button 
+                Content="Odśwież" 
+                Height="25" 
+                Width="100"
+                Margin="5"
+                />
+            
+            <Label 
+                HorizontalContentAlignment="Right"
+                Content="Sortowanie" 
+                Height="25" 
+                Width="100" 
+                Margin="5"
+                />
+            
+            <ComboBox 
+                Height="25" 
+                Width="150"
+                Margin="5"
+                ItemsSource="{Binding Contracts}"
+                SelectedValue="{Binding SelectedContractId}"
+                DisplayMemberPath="Name"
+                SelectedValuePath="Id"
+                />
+            
+            <Button 
+                Command="{Binding SQLSettingsCommand}"
+                Content="Ustawienia SQL" 
+                Height="25" 
+                Width="125" 
+                Margin="5"
+                />
+            
+        </StackPanel>
+        <DataGrid 
+            Grid.Row="1" 
+            Margin="5"
+            ItemsSource="{Binding Employees}"
+            SelectedItem="{Binding SelectedEmployee}"
+            CanUserAddRows="False"
+            IsReadOnly="True"
+            SelectionMode="Single"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Visibility="Hidden" Header="L.p."/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="Imię"/>
+                <DataGridTextColumn Binding="{Binding LastName}" Header="Nazwisko"/>
+                <DataGridTextColumn Binding="{Binding Comments}" Header="Uwagi"/>
+                <DataGridTextColumn Binding="{Binding Contract.Name}" Header="Umowa"/>
+                <DataGridTextColumn Binding="{Binding Salary}" Header="Technologia"/>
+                <DataGridTextColumn Binding="{Binding EmploymentDate}" Header="Data zatrudnienia"/>
+                <DataGridTextColumn Binding="{Binding UnemploymentDate}" Header="Data zakończenia współpracy"/>
+                <DataGridCheckBoxColumn Binding="{Binding IsCurrentlyHired}" Header="Aktualnie zatrudniony"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
         
     </Grid>
 </Window>
