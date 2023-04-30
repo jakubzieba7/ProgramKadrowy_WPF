@@ -134,10 +134,10 @@ namespace ProgramKadrowy_WPF.ViewModels
             Contracts = new ObservableCollection<Contract>
             {
             new Contract {Id=0,Name="Wszystkie"},
-            new Contract {Id=0,Name="UOP_okres_próbny"},
-            new Contract {Id=0,Name="UOP_czas_określony"},
-            new Contract {Id=0,Name="UOP_czas_nieokreślony"},
-            new Contract {Id=0,Name="B2B"}
+            new Contract {Id=1,Name="UOP_okres_próbny"},
+            new Contract {Id=2,Name="UOP_czas_określony"},
+            new Contract {Id=3,Name="UOP_czas_nieokreślony"},
+            new Contract {Id=4,Name="B2B"}
             };
 
             SelectedContractId = 0;

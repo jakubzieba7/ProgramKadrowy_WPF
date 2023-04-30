@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProgramKadrowy_WPF.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-                 Name="AddEditEmployeeWindow"
+        Name="AddEditEmployeeWindow"
         Title="Dane pracownika" Height="520" Width="400">
     <Grid>
         <Grid.RowDefinitions>
@@ -28,8 +28,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label Visibility="{Binding IsUpdate, Converter={StaticResource BooleanToVisibilityConverter}}" Content="Id" Margin="5"/>
-        <TextBox Visibility="{Binding IsUpdate, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Employee.Id}" IsReadOnly="True" Grid.Column="1" Margin="5"/>
+        <Label Visibility="{Binding IsUpdate}" Content="Id" Margin="5"/>
+        <TextBox Visibility="{Binding IsUpdate}" Text="{Binding Employee.Id}" IsReadOnly="True" Grid.Column="1" Margin="5"/>
 
         <Label Grid.Row="1" Content="Imię" Margin="5"/>
         <TextBox Text="{Binding Employee.FirstName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Grid.Row="1" Grid.Column="1" Margin="5"/>

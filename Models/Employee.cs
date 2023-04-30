@@ -8,6 +8,11 @@ namespace ProgramKadrowy_WPF.Models
 {
     public class Employee
     {
+        public Employee()
+        {
+            Contract = new Contract();
+        }
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
