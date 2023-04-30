@@ -20,10 +20,10 @@ namespace ProgramKadrowy_WPF.Views
     /// </summary>
     public partial class SQLSettingsView : Window
     {
-        public SQLSettingsView()
+        public SQLSettingsView(bool canCloseWindow)
         {
             InitializeComponent();
-            DataContext = new SQLSettingsViewModel();
+            DataContext = new SQLSettingsViewModel(canCloseWindow);
         }
     }
 }

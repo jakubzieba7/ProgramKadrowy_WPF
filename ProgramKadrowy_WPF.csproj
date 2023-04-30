@@ -67,6 +67,8 @@
     <Compile Include="ApplicationDBContext.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="ViewModels\SQLConnectionHelper.cs" />
+    <Compile Include="ViewModels\SQLSettings.cs" />
     <Compile Include="ViewModels\SQLSettingsViewModel.cs" />
     <Compile Include="Views\SQLSettingsView.xaml.cs">
       <DependentUpon>SQLSettingsView.xaml</DependentUpon>
