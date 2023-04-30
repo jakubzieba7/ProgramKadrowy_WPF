@@ -1,4 +1,5 @@
-﻿using ProgramKadrowy_WPF.ViewModels;
+﻿using ProgramKadrowy_WPF.Models;
+using ProgramKadrowy_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,12 @@ namespace ProgramKadrowy_WPF.Views
     /// <summary>
     /// Interaction logic for AddEmployee.xaml
     /// </summary>
-    public partial class AddEmployee : Window
+    public partial class AddEditEmployeeView : Window
     {
-        public AddEmployee()
+        public AddEditEmployeeView(Employee employee = null)
         {
             InitializeComponent();
-            DataContext = new AddEmployeeViewModel();
+            DataContext = new AddEditEmployeeViewModel(employee);
         }
     }
 }
