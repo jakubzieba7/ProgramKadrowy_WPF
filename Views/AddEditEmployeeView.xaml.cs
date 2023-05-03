@@ -1,4 +1,5 @@
 ﻿using ProgramKadrowy_WPF.Models;
+using ProgramKadrowy_WPF.Models.Wrappers;
 using ProgramKadrowy_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace ProgramKadrowy_WPF.Views
     /// </summary>
     public partial class AddEditEmployeeView : Window
     {
-        public AddEditEmployeeView(Employee employee = null)
+        public AddEditEmployeeView(EmployeeWrapper employee = null)
         {
             InitializeComponent();
             DataContext = new AddEditEmployeeViewModel(employee);

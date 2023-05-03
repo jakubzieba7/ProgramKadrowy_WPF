@@ -1,5 +1,6 @@
 ﻿using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Models;
+using ProgramKadrowy_WPF.Models.Wrappers;
 using ProgramKadrowy_WPF.Properties;
 using ProgramKadrowy_WPF.Views;
 using System;
@@ -33,9 +34,9 @@ namespace ProgramKadrowy_WPF.ViewModels
         public ICommand EditEmployeeCommand { get; set; }
         public ICommand AddEmployeeCommand { get; set; }
 
-        private Employee _selectedEmployee;
+        private EmployeeWrapper _selectedEmployee;
 
-        public Employee SelectedEmployee
+        public EmployeeWrapper SelectedEmployee
         {
             get
             {
@@ -48,9 +49,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
-        private ObservableCollection<Employee> _employees;
+        private ObservableCollection<EmployeeWrapper> _employees;
 
-        public ObservableCollection<Employee> Employees
+        public ObservableCollection<EmployeeWrapper> Employees
         {
             get
             {
@@ -78,9 +79,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
-        private ObservableCollection<Contract> _contracts;
+        private ObservableCollection<ContractWrapper> _contracts;
 
-        public ObservableCollection<Contract> Contracts
+        public ObservableCollection<ContractWrapper> Contracts
         {
             get
             {
@@ -98,7 +99,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void AddEditEmployeeData(object obj)
         {
-            var addEditEmployeeWindow = new AddEditEmployeeView(obj as Employee);
+            var addEditEmployeeWindow = new AddEditEmployeeView(obj as EmployeeWrapper);
             addEditEmployeeWindow.Closed += AddEditEmployeeWindow_Closed;
             addEditEmployeeWindow.ShowDialog();
         }
@@ -131,13 +132,13 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void InitContracts()
         {
-            Contracts = new ObservableCollection<Contract>
+            Contracts = new ObservableCollection<ContractWrapper>
             {
-            new Contract {Id=0,Name="Wszystkie"},
-            new Contract {Id=1,Name="UOP_okres_próbny"},
-            new Contract {Id=2,Name="UOP_czas_określony"},
-            new Contract {Id=3,Name="UOP_czas_nieokreślony"},
-            new Contract {Id=4,Name="B2B"}
+            new ContractWrapper {Id=0,Name="Wszystkie"},
+            new ContractWrapper {Id=1,Name="UOP_okres_próbny"},
+            new ContractWrapper {Id=2,Name="UOP_czas_określony"},
+            new ContractWrapper {Id=3,Name="UOP_czas_nieokreślony"},
+            new ContractWrapper {Id=4,Name="B2B"}
             };
 
             SelectedContractId = 0;
@@ -145,26 +146,26 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void RefreshEmployeeList()
         {
-            Employees = new ObservableCollection<Employee>
+            Employees = new ObservableCollection<EmployeeWrapper>
             {
-                new Employee
+                new EmployeeWrapper
                 {   Id=1,
                     FirstName="Józek",
                     LastName="Stokłosa",
                     IsCurrentlyHired=true,
-                    Contract=new Contract {Id=1 } },
-                new Employee
+                    Contract=new ContractWrapper {Id=1 } },
+                new EmployeeWrapper
                 {   Id=2,
                     FirstName="Wanda",
                     LastName="Dziwna",
                     IsCurrentlyHired=true,
-                    Contract=new Contract {Id=2 } },
-                new Employee
+                    Contract=new ContractWrapper {Id=2 } },
+                new EmployeeWrapper
                 {   Id=3,
                     FirstName="Staszek",
                     LastName="Dzik",
                     IsCurrentlyHired=true,
-                    Contract=new Contract {Id=1 } }
+                    Contract=new ContractWrapper {Id=1 } }
             };
         }
     }

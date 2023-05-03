@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramKadrowy_WPF.Models
+namespace ProgramKadrowy_WPF.Models.Wrappers
 {
-    public class Employee
+    public class EmployeeWrapper
     {
-        public Employee()
+        public EmployeeWrapper()
         {
-            Contract = new Contract();
+            Contract = new ContractWrapper();
         }
 
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Contract Contract { get; set; }
+        public ContractWrapper Contract { get; set; }
         public string Comments { get; set; }
         public decimal Salary { get; set; }
         public DateTime EmploymentDate { get; set; }

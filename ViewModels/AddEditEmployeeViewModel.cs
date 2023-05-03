@@ -1,5 +1,6 @@
 ﻿using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Models;
+using ProgramKadrowy_WPF.Models.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,7 +15,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 {
     public class AddEditEmployeeViewModel : ViewModelBase
     {
-        public AddEditEmployeeViewModel(Employee employee = null)
+        public AddEditEmployeeViewModel(EmployeeWrapper employee = null)
         {
 
             CloseCommand = new RelayCommand(Close);
@@ -22,7 +23,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 
             if (employee == null)
             {
-                Employee = new Employee();
+                Employee = new EmployeeWrapper();
             }
             else
             {
@@ -38,9 +39,9 @@ namespace ProgramKadrowy_WPF.ViewModels
         public ICommand CloseCommand { get; set; }
         public ICommand ConfirmCommand { get; set; }
 
-        private Employee _employee;
+        private EmployeeWrapper _employee;
 
-        public Employee Employee
+        public EmployeeWrapper Employee
         {
             get
             {
@@ -99,9 +100,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             window.Close();
         }
 
-        private ObservableCollection<Contract> _contracts;
+        private ObservableCollection<ContractWrapper> _contracts;
 
-        public ObservableCollection<Contract> Contracts
+        public ObservableCollection<ContractWrapper> Contracts
         {
             get
             {
@@ -116,13 +117,13 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void InitContracts()
         {
-            Contracts = new ObservableCollection<Contract>
+            Contracts = new ObservableCollection<ContractWrapper>
             {
-            new Contract {Id=0,Name="-- brak --"},
-            new Contract {Id=1,Name="UOP_okres_próbny"},
-            new Contract {Id=2,Name="UOP_czas_określony"},
-            new Contract {Id=3,Name="UOP_czas_nieokreślony"},
-            new Contract {Id=4,Name="B2B"}
+            new ContractWrapper {Id=0,Name="-- brak --"},
+            new ContractWrapper {Id=1,Name="UOP_okres_próbny"},
+            new ContractWrapper {Id=2,Name="UOP_czas_określony"},
+            new ContractWrapper {Id=3,Name="UOP_czas_nieokreślony"},
+            new ContractWrapper {Id=4,Name="B2B"}
             };
 
             Employee.Contract.Id = 0;

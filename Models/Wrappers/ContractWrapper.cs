@@ -1,6 +1,6 @@
-﻿namespace ProgramKadrowy_WPF.Models
+﻿namespace ProgramKadrowy_WPF.Models.Wrappers
 {
-    public class Contract
+    public class ContractWrapper
     {
         public int Id { get; set; }
         public string Name { get; set; }
