@@ -17,6 +17,12 @@ namespace ProgramKadrowy_WPF.ViewModels
     {
         public MainViewModel()
         {
+            //First query in order to create Database if not exists
+            using (var context = new ApplicationDBContext())
+            {
+                var employyes = context.Employees.ToList();
+            }
+
             AddEmployeeCommand = new RelayCommand(AddEditEmployeeData);
             EditEmployeeCommand = new RelayCommand(AddEditEmployeeData, CanEditEmployeeData);
             RefreshEmployeeCommand = new RelayCommand(RefreshEmployeeData);
@@ -27,7 +33,6 @@ namespace ProgramKadrowy_WPF.ViewModels
             InitContracts();
         }
 
-        
 
         public ICommand SQLSettingsCommand { get; set; }
         public ICommand RefreshEmployeeCommand { get; set; }
@@ -112,7 +117,7 @@ namespace ProgramKadrowy_WPF.ViewModels
         private bool CanEditEmployeeData(object obj)
         {
             return SelectedEmployee != null;
-                
+
         }
         private void RefreshEmployeeData(object obj)
         {

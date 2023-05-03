@@ -1,3 +1,5 @@
+using ProgramKadrowy_WPF.Models.Configurations;
+using ProgramKadrowy_WPF.Models.Domains;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -20,8 +22,16 @@ namespace ProgramKadrowy_WPF
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new EmployeeConfiguration());
+            modelBuilder.Configurations.Add(new ContractConfiguration());
+        }
     }
+
 
     //public class MyEntity
     //{
