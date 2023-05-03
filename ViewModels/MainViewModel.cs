@@ -18,10 +18,10 @@ namespace ProgramKadrowy_WPF.ViewModels
         public MainViewModel()
         {
             //First query in order to create Database if not exists
-            using (var context = new ApplicationDBContext())
-            {
-                var employyes = context.Employees.ToList();
-            }
+            //using (var context = new ApplicationDBContext())
+            //{
+            //    var employyes = context.Employees.ToList();
+            //}
 
             AddEmployeeCommand = new RelayCommand(AddEditEmployeeData);
             EditEmployeeCommand = new RelayCommand(AddEditEmployeeData, CanEditEmployeeData);
