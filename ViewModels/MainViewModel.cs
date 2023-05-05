@@ -1,5 +1,6 @@
 ﻿using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Models;
+using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
 using ProgramKadrowy_WPF.Properties;
 using ProgramKadrowy_WPF.Views;
@@ -15,6 +16,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private Repository _repository = new Repository();
         public MainViewModel()
         {
             //First query in order to create Database if not exists
@@ -84,9 +86,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
-        private ObservableCollection<ContractWrapper> _contracts;
+        private ObservableCollection<Contract> _contracts;
 
-        public ObservableCollection<ContractWrapper> Contracts
+        public ObservableCollection<Contract> Contracts
         {
             get
             {
@@ -137,14 +139,10 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void InitContracts()
         {
-            Contracts = new ObservableCollection<ContractWrapper>
-            {
-            new ContractWrapper {Id=0,Name="Wszystkie"},
-            new ContractWrapper {Id=1,Name="UOP_okres_próbny"},
-            new ContractWrapper {Id=2,Name="UOP_czas_określony"},
-            new ContractWrapper {Id=3,Name="UOP_czas_nieokreślony"},
-            new ContractWrapper {Id=4,Name="B2B"}
-            };
+            var contracts = _repository.GetContract();
+            contracts.Insert(0, new Contract { Id = 0, Name = "Wszystkie" });
+
+            Contracts = new ObservableCollection<Contract>(contracts);
 
             SelectedContractId = 0;
         }

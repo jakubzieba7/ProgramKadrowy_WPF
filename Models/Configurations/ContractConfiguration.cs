@@ -15,7 +15,7 @@ namespace ProgramKadrowy_WPF.Models.Configurations
         {
             ToTable("dbo.Contracts");
             Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(x => x.Name).HasMaxLength(20).IsRequired();
+            Property(x => x.Name).HasMaxLength(30).IsRequired();
         }
     }
 }

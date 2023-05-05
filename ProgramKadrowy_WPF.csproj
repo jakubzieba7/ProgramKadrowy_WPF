@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202305031139101_InitialCreate.designer.cs">
       <DependentUpon>202305031139101_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305051332493_IncreasedContractsNameMaxLength.cs" />
+    <Compile Include="Migrations\202305051332493_IncreasedContractsNameMaxLength.designer.cs">
+      <DependentUpon>202305051332493_IncreasedContractsNameMaxLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Configurations\ContractConfiguration.cs" />
     <Compile Include="Models\Configurations\EmployeeConfiguration.cs" />
@@ -79,6 +83,7 @@
     <Compile Include="Models\Domains\Contract.cs" />
     <Compile Include="Models\Domains\Employee.cs" />
     <Compile Include="Models\Wrappers\EmployeeWrapper.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="ViewModels\SQLConnectionHelper.cs" />
     <Compile Include="ViewModels\SQLSettings.cs" />
     <Compile Include="ViewModels\SQLSettingsViewModel.cs" />
@@ -130,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202305031139101_InitialCreate.resx">
       <DependentUpon>202305031139101_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305051332493_IncreasedContractsNameMaxLength.resx">
+      <DependentUpon>202305051332493_IncreasedContractsNameMaxLength.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,5 +1,6 @@
 ﻿using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Models;
+using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 {
     public class AddEditEmployeeViewModel : ViewModelBase
     {
+        private Repository _repository = new Repository();
         public AddEditEmployeeViewModel(EmployeeWrapper employee = null)
         {
 
@@ -100,9 +102,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             window.Close();
         }
 
-        private ObservableCollection<ContractWrapper> _contracts;
+        private ObservableCollection<Contract> _contracts;
 
-        public ObservableCollection<ContractWrapper> Contracts
+        public ObservableCollection<Contract> Contracts
         {
             get
             {
@@ -117,14 +119,10 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void InitContracts()
         {
-            Contracts = new ObservableCollection<ContractWrapper>
-            {
-            new ContractWrapper {Id=0,Name="-- brak --"},
-            new ContractWrapper {Id=1,Name="UOP_okres_próbny"},
-            new ContractWrapper {Id=2,Name="UOP_czas_określony"},
-            new ContractWrapper {Id=3,Name="UOP_czas_nieokreślony"},
-            new ContractWrapper {Id=4,Name="B2B"}
-            };
+            var contracts = _repository.GetContract();
+            contracts.Insert(0, new Contract { Id = 0, Name = "-- brak --" });
+
+            Contracts = new ObservableCollection<Contract>(contracts);
 
             Employee.Contract.Id = 0;
         }
