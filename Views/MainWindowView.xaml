@@ -21,7 +21,7 @@
                 Width="100"
                 Margin="5"
                 />
-            
+
             <Button 
                 Command="{Binding EditEmployeeCommand}"
                 CommandParameter="{Binding SelectedEmployee}"
@@ -30,7 +30,7 @@
                 Width="100"
                 Margin="5"
                 />
-            
+
             <Button 
                 Command="{Binding RefreshEmployeeCommand}"
                 Content="Odśwież" 
@@ -38,7 +38,7 @@
                 Width="100"
                 Margin="5"
                 />
-            
+
             <Label 
                 HorizontalContentAlignment="Right"
                 Content="Sortowanie" 
@@ -46,7 +46,7 @@
                 Width="100" 
                 Margin="5"
                 />
-            
+
             <ComboBox 
                 Height="25" 
                 Width="150"
@@ -56,7 +56,7 @@
                 DisplayMemberPath="Name"
                 SelectedValuePath="Id"
                 />
-            
+
             <Button 
                 Command="{Binding SQLSettingsCommand}"
                 Content="Ustawienia SQL" 
@@ -64,7 +64,7 @@
                 Width="125" 
                 Margin="5"
                 />
-            
+
         </StackPanel>
         <DataGrid 
             Grid.Row="1" 
@@ -82,12 +82,12 @@
                 <DataGridTextColumn Binding="{Binding Comments}" Header="Uwagi"/>
                 <DataGridTextColumn Binding="{Binding Contract.Name}" Header="Umowa"/>
                 <DataGridTextColumn Binding="{Binding Salary}" Header="Wynagrodzenie"/>
-                <DataGridTextColumn Binding="{Binding EmploymentDate}" Header="Data zatrudnienia"/>
-                <DataGridTextColumn Binding="{Binding UnemploymentDate}" Header="Data zakończenia współpracy"/>
+                <DataGridTextColumn Binding="{Binding EmploymentDate, StringFormat='dd.MM.yyyy'}" Header="Data zatrudnienia"/>
+                <DataGridTextColumn Binding="{Binding UnemploymentDate, StringFormat='dd.MM.yyyy'}" Header="Data zakończenia współpracy"/>
                 <DataGridCheckBoxColumn Binding="{Binding IsCurrentlyHired}" Header="Aktualnie zatrudniony"/>
             </DataGrid.Columns>
 
         </DataGrid>
-        
+
     </Grid>
 </Window>

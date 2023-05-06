@@ -95,6 +95,20 @@ namespace ProgramKadrowy_WPF.ViewModels
         {
             window.Close();
         }
+        private int _selectedContractId;
+
+        public int SelectedContractId
+        {
+            get
+            {
+                return _selectedContractId;
+            }
+            set
+            {
+                _selectedContractId = value;
+                OnPropertyChanged();
+            }
+        }
 
         private ObservableCollection<Contract> _contracts;
 
@@ -118,7 +132,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 
             Contracts = new ObservableCollection<Contract>(contracts);
 
-            Employee.Contract.Id = 0;
+            SelectedContractId = Employee.Contract.Id;
         }
 
     }
