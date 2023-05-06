@@ -22,7 +22,6 @@ namespace ProgramKadrowy_WPF.Models.Wrappers
         public decimal Salary { get; set; }
         public DateTime? EmploymentDate { get; set; }
         
-
         private DateTime? _unemploymentDate = DateTime.Now;
         public DateTime? UnemploymentDate 
         {
@@ -35,14 +34,6 @@ namespace ProgramKadrowy_WPF.Models.Wrappers
                 _unemploymentDate = value; 
             } 
         }
-        //public string FormattedUnemploymentDate
-        //{
-        //    get {
-        //        if (!string.IsNullOrEmpty(_unemploymentDate.ToString()))
-        //            return _unemploymentDate.ToString("D");
-        //        else
-        //            return null; }
-        //}
         public bool IsCurrentlyHired { get; set; }
     }
 }

@@ -115,7 +115,7 @@ namespace ProgramKadrowy_WPF.ViewModels
         }
         private void RefreshEmployeeData(object obj)
         {
-            throw new NotImplementedException();
+            Employees = new ObservableCollection<EmployeeWrapper>(_repository.GetEmployees(SelectedContractId));
         }
         private void AddEditSQLSettings(object obj)
         {
