@@ -79,6 +79,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Configurations\ContractConfiguration.cs" />
     <Compile Include="Models\Configurations\EmployeeConfiguration.cs" />
+    <Compile Include="Models\Converters\EmployeeConverter.cs" />
     <Compile Include="Models\Wrappers\ContractWrapper.cs" />
     <Compile Include="Models\Domains\Contract.cs" />
     <Compile Include="Models\Domains\Employee.cs" />
@@ -152,9 +153,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
