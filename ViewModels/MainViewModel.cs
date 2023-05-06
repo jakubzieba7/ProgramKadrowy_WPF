@@ -1,15 +1,10 @@
 ﻿using ProgramKadrowy_WPF.Commands;
-using ProgramKadrowy_WPF.Models;
 using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
 using ProgramKadrowy_WPF.Properties;
 using ProgramKadrowy_WPF.Views;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ProgramKadrowy_WPF.ViewModels
@@ -101,9 +96,6 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
-
-
-
         private void AddEditEmployeeData(object obj)
         {
             var addEditEmployeeWindow = new AddEditEmployeeView(obj as EmployeeWrapper);
@@ -149,27 +141,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void RefreshEmployeeList()
         {
-            Employees = new ObservableCollection<EmployeeWrapper>
-            {
-                new EmployeeWrapper
-                {   Id=1,
-                    FirstName="Józek",
-                    LastName="Stokłosa",
-                    IsCurrentlyHired=true,
-                    Contract=new ContractWrapper {Id=1 } },
-                new EmployeeWrapper
-                {   Id=2,
-                    FirstName="Wanda",
-                    LastName="Dziwna",
-                    IsCurrentlyHired=true,
-                    Contract=new ContractWrapper {Id=2 } },
-                new EmployeeWrapper
-                {   Id=3,
-                    FirstName="Staszek",
-                    LastName="Dzik",
-                    IsCurrentlyHired=true,
-                    Contract=new ContractWrapper {Id=1 } }
-            };
+            Employees = new ObservableCollection<EmployeeWrapper>(_repository.GetEmployees(SelectedContractId));
         }
     }
 }

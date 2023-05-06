@@ -2,13 +2,7 @@
 using ProgramKadrowy_WPF.Models;
 using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -84,12 +78,12 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void AddEmployee()
         {
-            throw new NotImplementedException();
+            _repository.AddEmployee(Employee);
         }
 
         private void UpdateEmployee()
         {
-            throw new NotImplementedException();
+            _repository.UpdateEmployee(Employee);
         }
 
         private void Close(object obj)

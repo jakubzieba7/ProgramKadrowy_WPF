@@ -30,5 +30,43 @@ namespace ProgramKadrowy_WPF
 
             }
         }
+
+        public void AddEmployee(EmployeeWrapper employeeWrapper)
+        {
+            var employee = employeeWrapper.ToDao();
+
+            using (var context = new ApplicationDBContext())
+            {
+                var dbEmployee = context.Employees.Add(employee);
+
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateEmployee(EmployeeWrapper employeeWrapper)
+        {
+            var employee = employeeWrapper.ToDao();
+
+            using (var context = new ApplicationDBContext())
+            {
+                UpdateEmployeeProperties(context, employee);
+
+                context.SaveChanges();
+            }
+        }
+
+        private void UpdateEmployeeProperties(ApplicationDBContext context, Employee employee)
+        {
+            var employeeToUpdate = context.Employees.Find(employee.Id);
+            employeeToUpdate.FirstName = employee.FirstName;
+            employeeToUpdate.LastName = employee.LastName;
+            employeeToUpdate.ContractId = employee.ContractId;
+            employeeToUpdate.Comments = employee.Comments;
+            employeeToUpdate.Salary = employee.Salary;
+            employeeToUpdate.EmploymentDate = employee.EmploymentDate;
+            employeeToUpdate.UnemploymentDate = employee.UnemploymentDate;
+            employeeToUpdate.IsCurrentlyHired = employee.IsCurrentlyHired;
+
+        }
     }
 }
