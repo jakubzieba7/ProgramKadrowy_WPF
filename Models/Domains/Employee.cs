@@ -11,7 +11,7 @@ namespace ProgramKadrowy_WPF.Models.Domains
         public Contract Contract { get; set; }
         public string Comments { get; set; }
         public decimal Salary { get; set; }
-        public DateTime EmploymentDate { get; set; }
+        public DateTime? EmploymentDate { get; set; }
         public DateTime? UnemploymentDate { get; set; }
         public bool IsCurrentlyHired { get; set; }
     }

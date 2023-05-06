@@ -76,6 +76,10 @@
     <Compile Include="Migrations\202305051332493_IncreasedContractsNameMaxLength.designer.cs">
       <DependentUpon>202305051332493_IncreasedContractsNameMaxLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305061421002_SetEmploymentDateNullable.cs" />
+    <Compile Include="Migrations\202305061421002_SetEmploymentDateNullable.designer.cs">
+      <DependentUpon>202305061421002_SetEmploymentDateNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Configurations\ContractConfiguration.cs" />
     <Compile Include="Models\Configurations\EmployeeConfiguration.cs" />
@@ -139,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305051332493_IncreasedContractsNameMaxLength.resx">
       <DependentUpon>202305051332493_IncreasedContractsNameMaxLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305061421002_SetEmploymentDateNullable.resx">
+      <DependentUpon>202305061421002_SetEmploymentDateNullable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
