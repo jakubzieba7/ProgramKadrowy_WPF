@@ -1,4 +1,5 @@
-﻿using ProgramKadrowy_WPF.Models;
+﻿using MahApps.Metro.Controls;
+using ProgramKadrowy_WPF.Models;
 using ProgramKadrowy_WPF.Models.Wrappers;
 using ProgramKadrowy_WPF.ViewModels;
 using System;
@@ -20,7 +21,7 @@ namespace ProgramKadrowy_WPF.Views
     /// <summary>
     /// Interaction logic for AddEmployee.xaml
     /// </summary>
-    public partial class AddEditEmployeeView : Window
+    public partial class AddEditEmployeeView : MetroWindow
     {
         public AddEditEmployeeView(EmployeeWrapper employee = null)
         {

@@ -1,4 +1,5 @@
-﻿using ProgramKadrowy_WPF.ViewModels;
+﻿using MahApps.Metro.Controls;
+using ProgramKadrowy_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace ProgramKadrowy_WPF.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindowView : Window
+    public partial class MainWindowView : MetroWindow
     {
         public MainWindowView()
         {

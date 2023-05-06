@@ -1,4 +1,5 @@
-﻿using ProgramKadrowy_WPF.ViewModels;
+﻿using MahApps.Metro.Controls;
+using ProgramKadrowy_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace ProgramKadrowy_WPF.Views
     /// <summary>
     /// Interaction logic for SQLSettingsView.xaml
     /// </summary>
-    public partial class SQLSettingsView : Window
+    public partial class SQLSettingsView : MetroWindow
     {
         public SQLSettingsView(bool canCloseWindow)
         {

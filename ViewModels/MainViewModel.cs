@@ -113,10 +113,12 @@ namespace ProgramKadrowy_WPF.ViewModels
             return SelectedEmployee != null;
 
         }
+
         private void RefreshEmployeeData(object obj)
         {
             Employees = new ObservableCollection<EmployeeWrapper>(_repository.GetEmployees(SelectedContractId));
         }
+
         private void AddEditSQLSettings(object obj)
         {
             var addEditSQLSettingsWindow = new SQLSettingsView(true);
