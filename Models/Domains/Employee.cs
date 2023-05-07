@@ -12,7 +12,22 @@ namespace ProgramKadrowy_WPF.Models.Domains
         public string Comments { get; set; }
         public decimal Salary { get; set; }
         public DateTime? EmploymentDate { get; set; }
-        public DateTime? UnemploymentDate { get; set; }
+
+        private DateTime? _unemploymentDate = DateTime.Now;
+        public DateTime? UnemploymentDate
+        {
+            get
+            {
+                if (!IsCurrentlyHired)
+                    return _unemploymentDate;
+                else
+                    return null;
+            }
+            set
+            {
+                _unemploymentDate = value;
+            }
+        }
         public bool IsCurrentlyHired { get; set; }
     }
 }
