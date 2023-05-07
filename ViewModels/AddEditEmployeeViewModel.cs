@@ -19,7 +19,7 @@ namespace ProgramKadrowy_WPF.ViewModels
 
             if (employee == null)
             {
-                Employee = new EmployeeWrapper();
+                Employee = new EmployeeWrapper() { IsCurrentlyHired=true};
             }
             else
             {
@@ -27,6 +27,7 @@ namespace ProgramKadrowy_WPF.ViewModels
                 IsUpdate = true;
             }
 
+            _isTerminated = !Employee.IsCurrentlyHired;
             InitContracts();
         }
 
@@ -65,6 +66,20 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
+        private bool _isTerminated;
+
+        public bool IsTerminated
+        {
+            get
+            {
+                return _isTerminated;
+            }
+            set
+            {
+                _isTerminated = value;
+                OnPropertyChanged();
+            }
+        }
 
         private void Confirm(object obj)
         {
