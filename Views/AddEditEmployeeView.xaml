@@ -42,7 +42,7 @@
         <TextBox Text="{Binding Employee.Salary}" Grid.Row="3" Grid.Column="1" Margin="5"/>
 
         <Label Grid.Row="4" Content="Data zatrudnienia" Margin="5"/>
-        <DatePicker SelectedDate="{Binding Employee.EmploymentDate}" Grid.Row="4" Grid.Column="1" Margin="5"/>
+        <DatePicker SelectedDate="{Binding Employee.EmploymentDate,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Grid.Row="4" Grid.Column="1" Margin="5"/>
 
         <Label Grid.Row="5" Content="Umowa" Margin="5"/>
         <ComboBox 

@@ -83,6 +83,9 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void Confirm(object obj)
         {
+            if (!Employee.IsValid)
+                return;
+
             if (!IsUpdate)
                 AddEmployee();
             else
