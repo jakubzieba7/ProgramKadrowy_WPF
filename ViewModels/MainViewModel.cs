@@ -1,17 +1,23 @@
-﻿using ProgramKadrowy_WPF.Commands;
+﻿using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Controls;
+using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
 using ProgramKadrowy_WPF.Properties;
 using ProgramKadrowy_WPF.Views;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
+using System.Data.SqlClient;
 
 namespace ProgramKadrowy_WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
         private Repository _repository = new Repository();
+        private SQLConnectionHelper _sqlConnectionHelper = new SQLConnectionHelper();
         public MainViewModel()
         {
             //First query in order to create Database if not exists
@@ -24,13 +30,14 @@ namespace ProgramKadrowy_WPF.ViewModels
             EditEmployeeCommand = new RelayCommand(AddEditEmployeeData, CanEditEmployeeData);
             RefreshEmployeeCommand = new RelayCommand(RefreshEmployeeData);
             SQLSettingsCommand = new RelayCommand(AddEditSQLSettings);
+            LoadedWindowCommand = new RelayCommand(LoadedWindow);
 
-
-            RefreshEmployeeList();
-            InitContracts();
+            //LoadedWindow(null);
         }
 
 
+
+        public ICommand LoadedWindowCommand { get; set; }
         public ICommand SQLSettingsCommand { get; set; }
         public ICommand RefreshEmployeeCommand { get; set; }
         public ICommand EditEmployeeCommand { get; set; }
@@ -145,5 +152,17 @@ namespace ProgramKadrowy_WPF.ViewModels
         {
             Employees = new ObservableCollection<EmployeeWrapper>(_repository.GetEmployees(SelectedContractId));
         }
+
+        private async void LoadedWindow(object obj)
+        {
+            if (!_sqlConnectionHelper.IsSQLConnectionSuccessful())
+                await _sqlConnectionHelper.EditSQLConnectionDataAsync();
+            else
+            {
+                RefreshEmployeeList();
+                InitContracts();
+            }
+        }
+
     }
 }

@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ProgramKadrowy_WPF.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ServerName" Type="System.String" Scope="User">
+    <Setting Name="ServerName" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">(local)</Value>
     </Setting>
     <Setting Name="ServerInstance" Type="System.String" Scope="User">

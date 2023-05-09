@@ -1,5 +1,6 @@
 using ProgramKadrowy_WPF.Models.Configurations;
 using ProgramKadrowy_WPF.Models.Domains;
+using ProgramKadrowy_WPF.Properties;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -14,8 +15,12 @@ namespace ProgramKadrowy_WPF
         // 
         // If you wish to target a different database and/or database provider, modify the 'ApplicationDBContext' 
         // connection string in the application configuration file.
+        private static string _sqlConnectionString = string.Concat("Server=", Settings.Default.ServerName, @"\", Settings.Default.ServerInstance, "; Database=", Settings.Default.SQLDatabaseName, "; User Id=", Settings.Default.ServerUserName, ";Password=", Settings.Default.ServerUserPassword, ";");
+
         public ApplicationDBContext()
-            : base("name=ApplicationDBContext")
+            //: base("name=ApplicationDBContext")
+            : base(_sqlConnectionString)
+            //: base($@"Server=.\SIGMANEST;Database=ProgramKadrowyDB;User Id=DOTNET;Password=DOTNET;")
         {
         }
 

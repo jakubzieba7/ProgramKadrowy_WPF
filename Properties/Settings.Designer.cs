@@ -25,7 +25,6 @@ namespace ProgramKadrowy_WPF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(local)")]
         public string ServerName {
             get {
                 return ((string)(this["ServerName"]));

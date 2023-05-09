@@ -101,8 +101,8 @@
     <Compile Include="Models\Domains\Employee.cs" />
     <Compile Include="Models\Wrappers\EmployeeWrapper.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="ViewModels\SQLConnectionHelper.cs" />
-    <Compile Include="ViewModels\SQLSettings.cs" />
+    <Compile Include="SQLConnectionHelper.cs" />
+    <Compile Include="SQLSettings.cs" />
     <Compile Include="ViewModels\SQLSettingsViewModel.cs" />
     <Compile Include="Views\SQLSettingsView.xaml.cs">
       <DependentUpon>SQLSettingsView.xaml</DependentUpon>

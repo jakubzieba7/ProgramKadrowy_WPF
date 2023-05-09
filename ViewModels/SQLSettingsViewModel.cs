@@ -1,11 +1,6 @@
 ﻿using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Properties;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 
@@ -46,9 +41,10 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private void TestSQLConnection(object obj)
         {
-            _sqlConnectionHelper.TestSQLConnection();
             Settings.Default.Save();
-            CloseWindow(obj as Window);
+            _sqlSettings = new SQLSettings();
+            _sqlConnectionHelper.TestSQLConnection();
+            //CloseWindow(obj as Window);
         }
 
         private void Close(object obj)

@@ -1,8 +1,9 @@
 ﻿using ProgramKadrowy_WPF.Properties;
+using System.ComponentModel;
 
-namespace ProgramKadrowy_WPF.ViewModels
+namespace ProgramKadrowy_WPF
 {
-    public class SQLSettings
+    public class SQLSettings : IDataErrorInfo
     {
         public string ServerName
         {
