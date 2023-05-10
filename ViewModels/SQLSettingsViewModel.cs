@@ -42,9 +42,7 @@ namespace ProgramKadrowy_WPF.ViewModels
         private void TestSQLConnection(object obj)
         {
             Settings.Default.Save();
-            _sqlSettings = new SQLSettings();
             _sqlConnectionHelper.TestSQLConnection();
-            //CloseWindow(obj as Window);
         }
 
         private void Close(object obj)
@@ -65,8 +63,13 @@ namespace ProgramKadrowy_WPF.ViewModels
             if (!SQLSettings.IsValid)
                 return;
 
-            Settings.Default.Save();
-            AplicationRestart();
+            if (!_sqlConnectionHelper.IsSQLConnectionSuccessful())
+                _sqlConnectionHelper.EditSQLConnectionData();
+            else
+            {
+                Settings.Default.Save();
+                AplicationRestart();
+            }
         }
 
         private void AplicationRestart()

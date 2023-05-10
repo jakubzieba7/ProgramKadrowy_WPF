@@ -44,7 +44,7 @@ namespace ProgramKadrowy_WPF
             {
                 EditSQLConnectionData();
             }
-            SQLConnectionSuccessMsg();
+            SQLConnectionSuccessMsg(); 
         }
 
         public async Task EditSQLConnectionDataAsync()
@@ -61,7 +61,7 @@ namespace ProgramKadrowy_WPF
                 Application.Current.Shutdown();
         }
 
-        private void EditSQLConnectionData()
+        public void EditSQLConnectionData()
         {
             var metroWindow = Application.Current.MainWindow as MetroWindow;
             var dialog = metroWindow.ShowModalMessageExternal("Niewłaściwe dane do połączenia z bazą SQL", "Czy chcesz edytować dane do połączenia z bazą SQL?", MessageDialogStyle.AffirmativeAndNegative);
@@ -74,7 +74,7 @@ namespace ProgramKadrowy_WPF
                 Application.Current.MainWindow.Close();
         }
 
-        private void SQLConnectionSuccessMsg()
+        public void SQLConnectionSuccessMsg()
         {
             var metroWindow = Application.Current.MainWindow as MetroWindow;
             metroWindow.ShowModalMessageExternal("Połaczenie z bazą danych SQL", $"Test połączenia z bazą danych {Settings.Default.SQLDatabaseName} przebiegł pomyślnie.", MessageDialogStyle.Affirmative);
