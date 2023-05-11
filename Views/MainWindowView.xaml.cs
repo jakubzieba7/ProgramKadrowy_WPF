@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using ProgramKadrowy_WPF.ViewModels;
 
 namespace ProgramKadrowy_WPF.Views
@@ -11,7 +12,7 @@ namespace ProgramKadrowy_WPF.Views
         public MainWindowView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = new MainViewModel(DialogCoordinator.Instance);
         }
     }
 }

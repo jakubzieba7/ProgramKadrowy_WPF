@@ -2,7 +2,6 @@
 using MahApps.Metro.Controls;
 using ProgramKadrowy_WPF.Properties;
 using ProgramKadrowy_WPF.Views;
-using System;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows;
@@ -65,6 +64,7 @@ namespace ProgramKadrowy_WPF
         {
             var metroWindow = Application.Current.MainWindow as MetroWindow;
             var dialog = metroWindow.ShowModalMessageExternal("Niewłaściwe dane do połączenia z bazą SQL", "Czy chcesz edytować dane do połączenia z bazą SQL?", MessageDialogStyle.AffirmativeAndNegative);
+            
             if (dialog == MessageDialogResult.Affirmative)
             {
                 var addEditSQLSettingsWindow = new SQLSettingsView(true);

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using System.Data.SqlClient;
+using System.Windows.Media;
 
 namespace ProgramKadrowy_WPF.ViewModels
 {
@@ -18,7 +19,9 @@ namespace ProgramKadrowy_WPF.ViewModels
     {
         private Repository _repository = new Repository();
         private SQLConnectionHelper _sqlConnectionHelper = new SQLConnectionHelper();
-        public MainViewModel()
+        
+        private IDialogCoordinator _dialogCoordinator;
+        public MainViewModel(IDialogCoordinator instance)
         {
             //First query in order to create Database if not exists
             //using (var context = new ApplicationDBContext())
@@ -33,9 +36,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             LoadedWindowCommand = new RelayCommand(LoadedWindow);
 
             //LoadedWindow(null);
+
+            _dialogCoordinator = instance;
         }
-
-
 
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand SQLSettingsCommand { get; set; }
@@ -155,14 +158,41 @@ namespace ProgramKadrowy_WPF.ViewModels
 
         private async void LoadedWindow(object obj)
         {
-            if (!_sqlConnectionHelper.IsSQLConnectionSuccessful())
-                await _sqlConnectionHelper.EditSQLConnectionDataAsync();
-            else
-            {
-                RefreshEmployeeList();
-                InitContracts();
-            }
+            ProgressDialogController controller = await _dialogCoordinator.ShowProgressAsync(this, "Cierpliwości!", "Oczekiwanie na połączenie z bazą danych SQL");
+
+            controller.SetIndeterminate();
+
+            await Task.Run(() =>
+                {
+
+                    if (!_sqlConnectionHelper.IsSQLConnectionSuccessful())
+                        EditSQLConnectionDataDialogCoord();
+                    else
+                    {
+                        RefreshEmployeeList();
+                        InitContracts();
+                    }
+
+                });
+
+            await controller.CloseAsync();
         }
 
+        public async void EditSQLConnectionDataDialogCoord()
+        {
+            var dialog = await _dialogCoordinator.ShowMessageAsync(this, "Niewłaściwe dane do połączenia z bazą SQL", "Czy chcesz edytować dane do połączenia z bazą SQL?", MessageDialogStyle.AffirmativeAndNegative);
+
+            if (dialog == MessageDialogResult.Affirmative)
+            {
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    var addEditSQLSettingsWindow = new SQLSettingsView(false);
+                    addEditSQLSettingsWindow.ShowDialog();
+                });
+
+            }
+            else
+                Application.Current.Shutdown();
+        }
     }
 }
