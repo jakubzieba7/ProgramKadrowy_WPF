@@ -3,21 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:ProgramKadrowy_WPF.Views"
-        mc:Ignorable="d"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:ProgramKadrowy_WPF.Views" mc:Ignorable="d"
         Name="LoginWindow"
         WindowStartupLocation="CenterScreen"
-        Title="LoginView" Height="600" Width="450" WindowStyle="ThreeDBorderWindow"  >
+                WindowStyle="None" ShowTitleBar="False" ShowCloseButton="False" ResizeMode="NoResize" ShowMinButton="False"
+        Title="LoginView" Height="600" Width="450">
     <Grid>
         <StackPanel>
-            
-        <TextBlock Margin="0 80 0 5" HorizontalAlignment="Center" FontSize="28" Text="Witaj ponownie!"/>
-        <TextBlock Margin="0 5 0 20" FontSize="18" HorizontalAlignment="Center" Text="Zaloguj się do swojego konta"/>
-        <TextBox Margin="80 50 80 0" Text="Wpisz nazwę użytkownika" TextAlignment="Center"/>
-        <PasswordBox Margin="80 20 80 0"/>
-        <Button Margin="80 20 80 0" Content="Zaloguj się"/>
-        <Button Margin="80 20 80 0" Content="Utwórz konto"/>
+            <TextBlock Margin="0 80 0 5" HorizontalAlignment="Center" FontSize="28" Text="Witaj ponownie!"/>
+            <TextBlock Margin="0 5 0 20" FontSize="18" HorizontalAlignment="Center" Text="Zaloguj się do swojego konta"/>
+            <Label Margin="80 50 80 0" Content="Podaj nazwę użytkownika" HorizontalAlignment="Left" FontSize="10"/>
+            <TextBox Margin="80 10 80 0" Text="{Binding AppUsername}" TextAlignment="Center" Height="30"/>
+            <Label Margin="80 10 80 0" Content="Podaj hasło" HorizontalAlignment="Left" FontSize="10"/>
+            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Margin="80 10 80 0" Height="30" HorizontalContentAlignment="Center"/>
+            <Button Command="{Binding LogInCommand}" mah:ControlsHelper.CornerRadius="10" Margin="70 20 70 0" Content="Zaloguj się" Height="50" Width="300"/>
+            <Button Command="{Binding CreateAccountCommand}" mah:ControlsHelper.CornerRadius="10" Margin="70 20 70 0" Content="Utwórz konto" Height="50" Width="300"/>
 
         </StackPanel>
 

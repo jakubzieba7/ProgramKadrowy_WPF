@@ -38,6 +38,9 @@ namespace ProgramKadrowy_WPF.ViewModels
             //LoadedWindow(null);
 
             _dialogCoordinator = instance;
+
+            var dialogLogin = new LoginView();
+            dialogLogin.ShowDialog();
         }
 
         public ICommand LoadedWindowCommand { get; set; }

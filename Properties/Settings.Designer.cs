@@ -81,5 +81,29 @@ namespace ProgramKadrowy_WPF.Properties {
                 this["ServerUserPassword"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        public string AppUserName {
+            get {
+                return ((string)(this["AppUserName"]));
+            }
+            set {
+                this["AppUserName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("password")]
+        public string AppPassword {
+            get {
+                return ((string)(this["AppPassword"]));
+            }
+            set {
+                this["AppPassword"] = value;
+            }
+        }
     }
 }

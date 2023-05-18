@@ -1,4 +1,6 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using ProgramKadrowy_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,13 @@ namespace ProgramKadrowy_WPF.Views
         public LoginView()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel();
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (DataContext != null)
+            { ((dynamic)DataContext).SecurePassword = ((PasswordBox)sender).SecurePassword; }
         }
     }
 }
