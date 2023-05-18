@@ -9,13 +9,21 @@
                  Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:ProgramKadrowy_WPF.Views"
         mc:Ignorable="d"
-        Title="Program kadrowy" Height="450" Width="800"
+        Title="Program kadrowy" Height="450" Width="1000" MinWidth="1000"
         WindowStartupLocation="CenterScreen">
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
+    <Window.Resources>
+        <Style TargetType="DataGridCell">
+            <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/> 
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -83,6 +91,8 @@
             IsReadOnly="True"
             SelectionMode="Single"
             AutoGenerateColumns="False">
+            
+                
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Visibility="Hidden" Header="L.p."/>
                 <DataGridTextColumn Binding="{Binding FirstName}" Header="Imię"/>
@@ -94,8 +104,6 @@
                 <DataGridTextColumn Binding="{Binding UnemploymentDate, StringFormat='dd.MM.yyyy'}" Header="Data zakończenia współpracy"/>
                 <DataGridCheckBoxColumn Binding="{Binding IsCurrentlyHired}" Header="Aktualnie zatrudniony"/>
             </DataGrid.Columns>
-
         </DataGrid>
-
     </Grid>
 </mah:MetroWindow>
