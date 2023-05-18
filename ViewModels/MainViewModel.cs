@@ -1,5 +1,4 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
-using MahApps.Metro.Controls;
 using ProgramKadrowy_WPF.Commands;
 using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
@@ -10,8 +9,6 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
-using System.Data.SqlClient;
-using System.Windows.Media;
 
 namespace ProgramKadrowy_WPF.ViewModels
 {

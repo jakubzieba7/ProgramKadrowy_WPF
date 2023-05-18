@@ -1,5 +1,4 @@
 ﻿using ProgramKadrowy_WPF.Commands;
-using ProgramKadrowy_WPF.Models;
 using ProgramKadrowy_WPF.Models.Domains;
 using ProgramKadrowy_WPF.Models.Wrappers;
 using System.Collections.ObjectModel;
@@ -30,8 +29,6 @@ namespace ProgramKadrowy_WPF.ViewModels
             _isTerminated = !Employee.IsCurrentlyHired;
             InitContracts();
         }
-
-
 
         public ICommand CloseCommand { get; set; }
         public ICommand ConfirmCommand { get; set; }
