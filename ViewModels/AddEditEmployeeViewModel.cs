@@ -26,7 +26,7 @@ namespace ProgramKadrowy_WPF.ViewModels
                 IsUpdate = true;
             }
 
-            _isTerminated = !Employee.IsCurrentlyHired;
+            IsTerminated = !Employee.IsCurrentlyHired;
             InitContracts();
         }
 

@@ -14,7 +14,9 @@ namespace ProgramKadrowy_WPF.ViewModels
         {
             LogInCommand = new RelayCommand(LogIn);
             CreateAccountCommand = new RelayCommand(CreateAccount);
+            UnLoadedWindowCommand = new RelayCommand(UnLoadedWindow);
         }
+
 
         public SecureString SecurePassword { private get; set; }
 
@@ -32,6 +34,7 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
+        public ICommand UnLoadedWindowCommand { get; set; }
         public ICommand LogInCommand { get; set; }
         public ICommand CreateAccountCommand { get; set; }
         private void CreateAccount(object obj)
@@ -53,13 +56,19 @@ namespace ProgramKadrowy_WPF.ViewModels
             }
         }
 
+        private void UnLoadedWindow(object obj)
+        {
+            return;
+            //Application.Current.Shutdown();
+        }
+
         private void LogIn(object obj)
         {
             if (AppUsername != Settings.Default.AppUserName || SecureStringToString(SecurePassword) != Settings.Default.AppPassword)
                 EditUserCredentialsTraditional();
             else
             {
-                LoginCredentialsSuccessMsg();
+                //LoginCredentialsSuccessMsg();
                 CloseAllWindows();
             }
         }
@@ -90,6 +99,9 @@ namespace ProgramKadrowy_WPF.ViewModels
         {
             MessageBox.Show("Jeśli nie posiadasz konta użytkownika, utwórz nowe.", "Konto użytkownika", MessageBoxButton.OK);
         }
+
+
+
 
     }
 }

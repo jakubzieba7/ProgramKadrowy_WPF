@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using ProgramKadrowy_WPF.ViewModels;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 

@@ -67,11 +67,18 @@ namespace ProgramKadrowy_WPF
             
             if (dialog == MessageDialogResult.Affirmative)
             {
+                CloseAllWindows();
                 var addEditSQLSettingsWindow = new SQLSettingsView(true);
                 addEditSQLSettingsWindow.ShowDialog();
             }
             else
                 Application.Current.MainWindow.Close();
+        }
+
+        private void CloseAllWindows()
+        {
+            for (int intCounter = App.Current.Windows.Count - 1; intCounter > 0; intCounter--)
+                App.Current.Windows[intCounter].Close();
         }
 
         public void SQLConnectionSuccessMsg()
